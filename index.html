@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    position: relative;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+  #time {
+    position: absolute;
+    top: 5px;
+    left: 45%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .weatherwidget-io {
+    position: relative;
+    z-index: 1;
+    margin-top: 0px;
+    display: inline-block;
+	
+}
+
+  }
+</style>
+</head>
+<body>
+
+<!-- Clock Widget Overlapping Weather Widget -->
+<div id="time">
+  <iframe src="https://free.timeanddate.com/clock/ia5hg9po/n819/fs36/fc0e3e86/tcffd900/ftb/tt0/tw0/tm1/ts1/tb4" frameborder="0" width="250" height="86"></iframe>
+
+
+</div>
+
+<!-- Weather Widget -->
+<a class="weatherwidget-io" 
+   href="https://forecast7.com/en/42d92n83d51/goodrich/?unit=us" 
+   data-label_1="GOODRICH" 
+   data-label_2="WEATHER" 
+   data-font="Arial" 
+   data-icons="Climacons Animated" 
+   data-days="3" 
+   data-theme="original" 
+   data-basecolor="#0e3e86" 
+   data-suncolor="#ffd900">GOODRICH WEATHER</a>
+
+<script type="text/javascript">
+var tday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var tmonth = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function GetClock(){
+  var d = new Date();
+  var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate();
+  document.getElementById('day').innerHTML = "<div>" + tday[nday] + "</div>";
+  document.getElementById('date').innerHTML = "<div>" + ndate + "</div>";
+}
+
+window.onload = function(){
+  GetClock();
+  setInterval(GetClock, 1000);
+}
+</script>
+
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);js.id=id;
+    js.src='https://weatherwidget.io/js/widget.min.js';
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,'script','weatherwidget-io-js');
+</script>
+
+</body>
+</html>
